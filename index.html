@@ -90,6 +90,14 @@
 		</div>
 	</div>
 	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		    $('#slider').append('<img src="static/images/full13.jpg" alt="" alt="" title="#caption3">');
+		});
+	</script>
+
+	
 <div id="wrapper">
 	<div class="slider-wrapper futurico-theme">
 
@@ -117,18 +125,20 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="static/js/jquery.nivo.slider.pack.js"></script>
 	<script>
+
 		$(window).load(function() {
 			$('#slider').nivoSlider({
 				effect: 'fade',
 				directionNavHide: false,
-				//pauseOnHover: true,
+				pauseOnHover: true,
 				captionOpacity: 1,
 				prevText: '<',
 				nextText: '>',
 				
 				directionNav: true,
-				manualAdvance: true,
-				randomStart: false,
+				//manualAdvance: true,
+				animSpeed: 0,
+				pauseTime: 5000,
 				startSlide: 0, 
 			});
 		});
@@ -143,7 +153,8 @@
 			for (j in site){
 				//console.log(j,site[j]);
 			}
-		    }
+		    };
+
 		//$(document).ready(function(){
 		//   $('p').html('jQuery magic in action!')
 		//})
