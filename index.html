@@ -104,12 +104,10 @@
 			<img src="static/images/full15.jpg" alt="">
 
 		</div>
-		<div id="caption1" class="nivo-html-caption">
-			<strong>New Project</strong> <span></span> <em>Some description here</em>.
+		<div id="caption1" class="nivo-html-caption"><strong>New Project</strong> <span></span> <em>Some description here</em>.
 		</div>
 
-		<div id="caption3" class="nivo-html-caption">
-			<strong>Image 3</strong> <span></span> <em>Some description here</em>.
+		<div id="caption3" class="nivo-html-caption"><strong>Image 3</strong> <span></span> <em>Some description here</em>.
 		</div>
 	</div>
 </div>
@@ -123,7 +121,7 @@
 			$('#slider').nivoSlider({
 				effect: 'fade',
 				directionNavHide: false,
-				pauseOnHover: true,
+				//pauseOnHover: true,
 				captionOpacity: 1,
 				prevText: '<',
 				nextText: '>',
@@ -134,7 +132,30 @@
 				startSlide: 0, 
 			});
 		});
-	</script>
+		$.getJSON("static/js/test.json", function(data) {
+		    //console.log(data);
+		    //console.log(data[1]);
+		    for (i in data){
+			var site = data[i];
+			//console.log(data[i]);
+			var sid = site['sid'];//<div id="caption1" class="nivo-html-caption"><strong>New Project</strong> <span></span> <em>Some description here</em>
+			console.log(sid)
+			for (j in site){
+				//console.log(j,site[j]);
+			}
+		    }
+		//$(document).ready(function(){
+		//   $('p').html('jQuery magic in action!')
+		//})
+		//$(document).ready(function(){
+		    //$('#button').click(function(){
+			//var toAdd = $('input[name=checkListItem]').val();
+			//$('.list').append("<div class='item'>"+toAdd+"</div>");
+		    //})
+		//})
+		});
+		
+			</script>
 
 	</body>
 	
