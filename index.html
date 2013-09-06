@@ -47,37 +47,37 @@
 
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 				
-				<script type="text/javascript" src="static/js/la-slideshow.js"></script>
-
-				<div id="wrapper">
-					<div class="slider-wrapper futurico-theme">
-				
-						<div id="slider" class="nivoSlider">
-				
-							<img src="static/images/full5.jpg" alt="" alt="" title="#caption1">
-				
-							<img src="static/images/full8.jpg" alt="">
-				
-							<img src="static/images/full13.jpg" alt="" alt="" title="#caption3">
-				
-							<img src="static/images/full15.jpg" alt="">
-				
-						</div>
-						<div id="caption1" class="nivo-html-caption"> <strong>New Project</strong>  <em>Some description here</em><br>
-						Hello World <em>this is a new line.</em>
-			
-						</div>
-				
-						<div id="caption3" class="nivo-html-caption"><strong>Image 3</strong> <span></span> <em>Some description here</em>.
-						</div>
+				<!--This is where we define the slideshow divs, and call the script to replace the initial values-->					
+				<div id="siteslides">
+					<img class="siteimage" src="static/images/LA/LA1_Page_002.jpg" alt="site design diagram"/>
+					
+					<div id="backwardtab"><</div>
+					<div id="forwardtab">></div>
 						
+					<div class="sitetext">
+						<p><span class="sitelabel">CLOSEST STREET:</span>
+						<!--<span class="sitesid">128</span>-->
+						<span class="street">Ventura</span></p>
 						
-					</div>
+						<p><span class="sitelabel">LOCAL WATERSHED:</span>
+						<span class="local">Bell Creek-Los Angeles River</span></p>
+						
+						<p><span class="sitelabel">MEDIUM WATERSHED:</span> 
+						<span class="medium">Upper Los Angeles River</span></p>
+						
+						<p><span class="sitelabel">REGIONAL WATERSHED:</span> 
+						<span class="regional">Los Angeles</span></p>
+						
+						<p><span class="sitelabel">GROUNDWATER BASIN:</span>
+						<span class="ground">Calabasas Creek</span></p>
+						
+						<p><span class="sitelabel">SOIL TYPE:</span>
+						<span class="soil">DIABLO CLAY LOAM</span></p> 
+				      </div>
 				</div>
-	
-				<!-- jQuery & Nivo Slider -->
-				<script src="static/js/jquery.nivo.slider.pack.js"></script>
-				<script type="text/javascript" src="static/js/slider-master.js"></script>
+				
+				<!-- This is the location of the script we will be using for the slideshow-->
+				<script type="text/javascript" src="static/js/slideshowLA.js"></script>
 
 				
 				<p>Thelloe demo of the <a href="http://framelessgrid.com">Frameless grid</a> that I created for <a href="http://marknugent.tumblr.com/post/47212935858/a-guide-tutorial-to-the-frameless-grid-how-to">this tutorial</a>. You can view the LESS stylesheet <a href="style.less">here</a>. </p>
@@ -93,13 +93,48 @@
 			<div id="fpcontent-writing">
 				<h3>Here's a headline, y'all</h3>
 				<hr>
+					
 				<p>This is a little demo of the <a href="http://framelessgrid.com">Frameless grid</a> that I created for <a href="http://marknugent.tumblr.com/post/47212935858/a-guide-tutorial-to-the-frameless-grid-how-to">this tutorial</a>. You can view the LESS stylesheet <a href="style.less">here</a>. </p>
 				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
 			</div>
 			<div id="fpcontent">
 				<h3>Here's a headline, y'all</h3>
 				<hr>
-				<img src="image.jpg" />
+				
+				<!--This is where we define the slideshow divs, and call the script to replace the initial values-->					
+				<div id="siteslides2">
+					<img class="siteimage" src="static/images/LA/LA1_Page_002.jpg" alt="site design diagram"/>
+					
+					<div id="backwardtab2"><</div>
+					<div id="forwardtab2">></div>
+						
+					<div class="sitetext">
+						<p><span class="sitelabel">CLOSEST STREET:</span>
+						<!--<span class="sitesid">128</span>-->
+						<span class="street">Ventura</span></p>
+						
+						<p><span class="sitelabel">LOCAL WATERSHED:</span>
+						<span class="local">Bell Creek-Los Angeles River</span></p>
+						
+						<p><span class="sitelabel">MEDIUM WATERSHED:</span> 
+						<span class="medium">Upper Los Angeles River</span></p>
+						
+						<p><span class="sitelabel">REGIONAL WATERSHED:</span> 
+						<span class="regional">Los Angeles</span></p>
+						
+						<p><span class="sitelabel">GROUNDWATER BASIN:</span>
+						<span class="ground">Calabasas Creek</span></p>
+						
+						<p><span class="sitelabel">SOIL TYPE:</span>
+						<span class="soil">DIABLO CLAY LOAM</span></p> 
+				      </div>
+				</div>
+				
+				<!-- This is the location of the script we will be using for the slideshow-->
+				<script type="text/javascript" src="static/js/slideshowSF.js"></script>
+				
+
+				
 				<p>This is a little demo of the <a href="http://framelessgrid.com">Frameless grid</a> that I created for <a href="http://marknugent.tumblr.com/post/47212935858/a-guide-tutorial-to-the-frameless-grid-how-to">this tutorial</a>. You can view the LESS stylesheet <a href="style.less">here</a>. </p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>

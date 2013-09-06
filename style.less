@@ -371,214 +371,30 @@ top:@2cols;
 
 /***** end common styles *****/
 
-
-/*
- * jQuery Nivo Slider v2.7.1
- * http://nivo.dev7studios.com
- *
- * Copyright 2011, Gilbert Pellegrom
- * Free to use and abuse under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- * 
- * March 2010
- */
- 
- 
-/* The Nivo Slider styles */
-.nivoSlider {
-	position:relative;
-	background:url(static/images/loading.gif) no-repeat 50% 50%;
-
-	img {
-		position:absolute;
-		top:0px;
-		left:0px;
-		display: none;
-	}
-	
-	a {
-    	border:0;
-    	display:block;
-	}
-	
-	}
-	
-	
-
-.nivo-box {
-	display:block;
-	position:absolute;
-	z-index:5;
-}
-
-/* Caption styles */
-
-.nivo-caption {
-	position:absolute;
-	left:0px;
-	bottom:0px;
-	background:#000;
-	color:#fff;
-	opacity:0.8; /* Overridden by captionOpacity setting */
-	width:100%;
-	z-index:8;
-
-p {
-	padding:5/@em;
-	margin:0;
-}
-
- a {
-	display:inline !important;
-}
-
-}
-
-
-.nivo-html-caption {
-    display:none;
-}
-
-
-/* Direction nav styles (e.g. Next & Prev) */
-.nivo-directionNav a {
-	position:absolute;
-	top:45%;
-	z-index:9;
-	cursor:pointer;
-}
-.nivo-prevNav {
-	left:0px;
-}
-.nivo-nextNav {
-	right:0px;
-}
-/* Control nav styles (e.g. 1,2,3...) */
-.nivo-controlNav a {
-	position:relative;
-	z-index:9;
-	cursor:pointer;
-}
-.nivo-controlNav a.active {
-	font-weight:bold;
-}
-
-
-/* further slideshow styling */
-
-.futurico-theme.slider-wrapper {
-	position: relative;
-	width: 100%;
-	height: auto;
-	margin: 0;
-	padding: 0;
-	
-	/*background: #141517;*/
-
-	//-webkit-border-radius: 5px;
-	//-moz-border-radius: 5px;
-	//border-radius: 5px;
-}
-
-.futurico-theme .nivoSlider {
-	position: relative;
-	width: auto;
-	height: auto;
-}
-
-.futurico-theme .nivoSlider img {
-	display: none;
+/* Slider Buttons */
+#siteslides .backwardtab {
 	position: absolute;
-	width: 100%;
-	height: auto;
-	top: 0;
 	left: 0;
+	height: 600px;
+	width: 48px;
+	background: url('static/images/triangle-left.png') center center no-repeat;
+	opacity: 0.1;
 }
-
-.futurico-theme .nivo-controlNav {
+#siteslides .backwardtab:hover {
+	opacity: 1.0;
+}
+#siteslides .forwardtab {
 	position: absolute;
-	bottom: -30/@em;
-	left: 50%; /* Change this to center the navigation */
+	right: 0;
+	height: 600px;
+	width: 48px;
+	background: url('static/images/triangle-right.png') center center no-repeat;
+	opacity: 0.1;
+}
+#siteslides .forwardtab:hover {
+	opacity: 1.0;
 }
 
-.futurico-theme .nivo-controlNav a {
-	display: block;
-	float: left;
-	width: 16/@em;
-	height: 16/@em;
-	margin-right: 5/@em;
-	text-indent: -9999px;
-	
-	background: #141517;
-
-	//-webkit-border-radius: 16px;
-	//-moz-border-radius: 16px;
-	//border-radius: 16px;
-
-	//-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0, .5), 0px 1px 1px rgba(255,255,255, .05);
-	//-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0, .5), 0px 1px 1px rgba(255,255,255, .05);
-	//box-shadow: inset 0px 1px 1px rgba(0,0,0, .5), 0px 1px 1px rgba(255,255,255, .05);
-}
-
-.futurico-theme .nivo-controlNav a.active,
-.futurico-theme .nivo-caption span {
-	background: #a5cd4e;
-	background: -moz-linear-gradient(top,  #a5cd4e 0%, #6b8f1a 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a5cd4e), color-stop(100%,#6b8f1a));
-	background: -webkit-linear-gradient(top,  #a5cd4e 0%,#6b8f1a 100%);
-	background: -o-linear-gradient(top,  #a5cd4e 0%,#6b8f1a 100%);
-	background: -ms-linear-gradient(top,  #a5cd4e 0%,#6b8f1a 100%);
-	background: linear-gradient(top,  #a5cd4e 0%,#6b8f1a 100%);
-
-	-webkit-box-shadow: inset 0px 1px 1px rgba(255,255,255, .4), 0px 1px 1px rgba(0,0,0, .3);
-	-moz-box-shadow: inset 0px 1px 1px rgba(255,255,255, .4), 0px 1px 1px rgba(0,0,0, .3);
-	box-shadow: inset 0px 1px 1px rgba(255,255,255, .4), 0px 1px 1px rgba(0,0,0, .3);
-}
-
-.futurico-theme .nivo-directionNav a {
-	display: block;
-	top: 60/@em;
-	
-//	font-family: 'Consolas', sans-serif;
-	font-size: 40/@em;
-	color: #141517;
-	text-shadow: 0px 1px 1px rgba(255,255,255, .05);
-}
-
-.futurico-theme a.nivo-prevNav { left: -40/@em; }
-
-.futurico-theme a.nivo-nextNav { right: -40/@em; }
-
-.futurico-theme .nivo-caption {
-	padding: 5/@em 0;
-
-//	font-family: Helvetica, Arial, sans-serif;
-	font-size: 12/@em;
-	color: #e1e1e1;
-	
-	background: #000000;
-
-//	-webkit-border-radius: 0 0 3px 3px;
-//	-moz-border-radius: 0 0 3px 3px;
-//	border-radius: 0 0 3px 3px;
-}
-
-.futurico-theme .nivo-caption span {
-	display: inline-block;
-	width: 5/@em;
-	height: 5/@em;
-	margin: 0 5/@em 1/@em 5/@em;
-
-//	-webkit-border-radius: 5px;
-//	-moz-border-radius: 5px;
-//	border-radius: 5px;
-}
-
-.futurico-theme .nivo-caption em {
-//	font-family: Georgia, sans-serif;
-	font-size: 11px;
-	color: #727581;
-}
 
 
 /**
