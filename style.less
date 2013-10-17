@@ -163,19 +163,19 @@ h1, h2, h3, h4 {
 /***** common styles *****/
 
 body {
-	background: url('background.gif') repeat-y center top;
-	background-size: 841/@em;
+	// background: url('background.gif') repeat-y center top;
+	// background-size: 841/@em;
 	// the background.gif image shows the grid. The width of the image is 841px.
 	// We've declared the size to be 841/@em so that it zooms with the page.
 	
-	//background-color:#ccc;
+	background-color:#fbfbfb;
 	
 	}
 	
 a { 
-	color:#900; 
+	color:#E76600; 
 	text-decoration:none; 
-	border-bottom: 1px dotted #900;
+	border-bottom: 1px dotted #E76600;
 	}
 
 a:hover {
@@ -224,6 +224,7 @@ h1 em {
 	margin-bottom: 8/@em;
 	margin-right: 24/@em;
 	float:left;
+	color:#333;
 	
 	p {
 	font-weight: 400; font-style: normal;
@@ -231,7 +232,7 @@ h1 em {
 	}
 	
 	b {
-	font-weight: 400; font-style: normal; color:#fff;
+	font-weight: 400; font-style: normal; color:#666;
 	
 	}
 }
@@ -282,7 +283,9 @@ h3 {
 	box-shadow: 0px 0px 4/@em 0px #8f8f8f;
 	padding: 16/@em;
 	display: inline-block;
-	//font-family: 'Archer SSm A', 'Archer SSm B';
+	font-family: 'Mercury SSm A', 'Mercury SSm B';
+	font-weight: 300;
+	font-style:normal;
 	font-size: 13/@em;
 	line-height: 28/@em;	
 
@@ -292,8 +295,9 @@ h3 {
 	
 	h3 {
 	text-transform:uppercase;
-	font-size:14/@em;
+	font-size:12/@em;
 	line-height: 28/@em;
+	font-weight: 500;
 	}
 	
 	p {
@@ -375,8 +379,17 @@ top:@2cols;
 	
 	}
 
-/***** end common styles *****/
 
+
+#siteslides {
+
+	font-size: 12/@em;
+	font-family: 'Whitney SSm A', 'Whitney SSm B';
+	line-height: 28/@em;
+	
+}
+
+	
 /* Slider Buttons */
 #siteslides .backwardtab {
 	position: absolute;
@@ -401,7 +414,7 @@ top:@2cols;
 	opacity: 1.0;
 }
 
-
+/***** end common styles *****/
 
 /**
 	Mobile layout 
@@ -634,7 +647,7 @@ body {
 	
 }
 
-@media screen and (min-width: 110em) {
+/*@media screen and (min-width: 110em) {
 	body {
 		font-size: (@font-size)/16*1em;
 		}
@@ -665,4 +678,6 @@ body {
 		font-size: (@font-size+2)/16*1em;
 		}
 		
-	}
+	} */ 
+	
+	
