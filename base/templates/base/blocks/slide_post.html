@@ -1,0 +1,33 @@
+<div id="fpcontent">
+    <h3>{{ post.headline }}</h3>
+    <hr>
+    <!--This is where we define the slideshow divs, and call the script to replace the initial values-->
+    <div id="siteslides{{ post.id }}" class="slide" 
+         data-json="{{ post.json_path }}" data-image="{{ post.image_path }}">
+        <img class="siteimage" src="/static/images/LA/LA1_Page_002.jpg" alt="site design diagram"/>
+
+        <div id="backwardtab"><a href="#">&lt;</a></div>
+        <div id="forwardtab"><a href="#">&gt;</a></div>
+
+        <div class="sitetext">
+            <b><span class="street">Ventura</span></b>
+            <hr>
+
+            <span class="local">Bell Creek-Los Angeles River</span> / 
+            <span class="medium">Upper Los Angeles River</span> /
+            <span class="regional">Los Angeles</span> Watershed.
+            <hr>
+
+            <span class="sitelabel">Groundwater Basin :</span>
+            <span class="ground">Calabasas Creek</span>
+            <hr>
+        </div>
+    </div>
+
+    <p>
+        {{ post.body|truncatewords:45|safe }}
+        {% if post.body|length > post.body|truncatewords:45|length %}
+           <a href="{{ post.id }}/"> Read more </a>
+        {% endif %}
+    </p>
+</div>

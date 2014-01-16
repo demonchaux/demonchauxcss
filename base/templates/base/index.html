@@ -1,10 +1,5 @@
 {% extends 'base/base.html' %}
 
-{% block javascript %}
-    <!-- This is the location of the script we will be using for the slideshow-->
-    <script type="text/javascript" src="static/js/slideshowLA.js"></script>
-{% endblock %}
-
 {% block content %}
     <div id="container">
         {# <h1 id="mobile">Mobile layout, &gt; 0em</h1> #}
@@ -23,24 +18,44 @@
             <div id="newsitem">21.12.13 &raquo; Here is yet more news</div>
         </div>
         <div id="main">
+            {% for post in posts %}
+                {% ifequal post.post_type 'sld' %}
+                    {% include "base/blocks/slide_post.html" %}
+                {% endifequal %}
+
+                {% ifequal post.post_type 'cd' %}
+                    {% include "base/blocks/code_post.html" %}
+                {% endifequal %}
+
+                {% ifequal post.post_type 'wrt' %}
+                    {% include "base/blocks/writing_post.html" %}
+                {% endifequal %}
+            {% endfor %}
+
+            {% comment %}
             <div id="fpcontent">
                 <h3>Local code case study : san francisco</h3>
                 <hr>
                 <!--This is where we define the slideshow divs, and call the script to replace the initial values-->
                 <div id="siteslides">
                     <img class="siteimage" src="/static/images/LA/LA1_Page_002.jpg" alt="site design diagram"/>
-                        
-                    <div id="backwardtab"><</div>
-                    <div id="forwardtab">></div>
-                                
+
+                    <div id="backwardtab">
+                        <a href="#">&lt;</a>
+                    </div>
+                    <div id="forwardtab">
+                        <a href="#">&gt;</a>
+                    </div>
+
                     <div class="sitetext">
                         <b><span class="street">Ventura</span></b>
-                        
                         <hr>
+
                         <span class="local">Bell Creek-Los Angeles River</span> / 
                         <span class="medium">Upper Los Angeles River</span> /
                         <span class="regional">Los Angeles</span> Watershed.
                         <hr>
+
                         <span class="sitelabel">Groundwater Basin :</span>
                         <span class="ground">Calabasas Creek</span>
                         <hr>
@@ -49,13 +64,17 @@
                 <p>This is the text mockup of a many, many design propsal slideshow. </p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
             </div>
+            {% endcomment %}
+            {% comment %}
             <div id="fpcontent-code">
                 <h3>This is an article containing some code</h3>
                 <hr>
                 <p>This is the text mockup of an article containing code. </p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-            </div>
+            </div> 
+            {% endcomment %}
+            {% comment %}
             <div id="fpcontent-writing">
                 <h3>Here's a headline, y'all</h3>
                 <hr>
@@ -63,13 +82,14 @@
                 <p>This is the mockup of a longer piece of writing that would be linked here. </p>
                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
             </div>
-<!-- 
+            {% endcomment %}
+            {% comment %}
             <div id="fpcontent">
                     <h3>Here's a headline, y'all</h3>
                     <hr>
                     
-                    <!~~This is where we define the slideshow divs, and call the script to replace the initial values~~>                                    
-            <div id="siteslides2">
+                     <!--This is where we define the slideshow divs, and call the script to replace the initial values-->                                    
+                     <div id="siteslides2">
                             <img class="siteimage" src="static/images/LA/LA1_Page_002.jpg" alt="site design diagram"/>
                             
                             <div id="backwardtab2"><</div>
@@ -96,24 +116,24 @@
                           </div>
                     </div>
                     
-                    <!~~ This is the location of the script we will be using for the slideshow~~>
+                    <!-- This is the location of the script we will be using for the slideshow -->
                     <script type="text/javascript" src="static/js/slideshowSF.js"></script>
-                    
 
-                    
                     <p>This is another many-many-project slideshow. </p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
             </div>
--->
+            {% endcomment %}
+            {% comment %}
             <div id="fpcontent">
                 <h3>Here's a headline, y'all</h3>
                 <hr>
-                <img src="http://nicholas.demonchaux.com/images/32.jpg">
+                {# <img src="http://nicholas.demonchaux.com/images/32.jpg"> #}
                 <p>This would be a more traditional design project. </p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
             </div>
+            {% endcomment %}
         </div><!-- main -->
         {% include "base/blocks/footer.html" %}
     </div>

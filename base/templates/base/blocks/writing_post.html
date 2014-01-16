@@ -1,0 +1,14 @@
+<div id="fpcontent-writing">
+    <h3>{{ post.headline }}</h3>
+    <hr>
+    {% if post.image_path %}
+        <img src="{{ STATIC_URL }}{{ post.image_path }}">
+    {% endif %}
+
+    <p>
+        {{ post.body|truncatewords:45 }}
+        {% if post.body|length > post.body|truncatewords:45|length %}
+           <a href="{{ post.id }}/"> Read more </a>
+        {% endif %}
+    </p>
+</div>

@@ -3,82 +3,131 @@
 
 var jsonFile = "static/js/json/localcode_la.json";
 var imageDirectory = "static/images/LA/"
-// Duration of slideshow in seconds
-var slideDuration = 5;
-
-var street = "roads-fename";
-var local = "localwaterbasin-hu_12_name";
-var medium = "mediumwaterbasin-hu_10_name";
-var regional = "largewaterbasin-hu_8_name";
-var ground = "hydrography";
-var soil = "soils-name";
 
 
 $(function(){
-    $.get(jsonFile, function( data ) {
-            var sites = data;
-                                                            
-            function startSlides(imageSlide, step){
-                    var idx = imageSlide.data('siteindex') + step;
-                    
-                    if (idx < 0){
-                            idx = sites.length - 1;
-                    }
-                    if (idx == sites.length){
-                            idx = 0;
-                    }
-                    
-                    imageSlide.data('siteindex',idx);								
-                    newSite = sites[idx];
-                    // swap image
-                    imageSlide.children('.siteimage')
-                    .fadeOut('fast', siteCall(imageSlide, newSite));
-            };
-            
-            function siteCall(imageSlide, newSite){
-                    return function(){
-                            var img = imageSlide.children('.siteimage');
-                            img.bind("load",function(){
-                                    $(this).fadeIn();
-                            });
-                            img.attr('src', imageDirectory + newSite.images);
-                            // swap text bits
-                            
-                            // Here we need to add a . + the name of the var....
-                            // We also need to switch the name of the var inside the [ ]
-                            imageSlide.find('.street').html(newSite[street]);
-                            imageSlide.find('.local').html(newSite[local]);
-                            imageSlide.find('.medium').html(newSite[medium]);
-                            imageSlide.find('.regional').html(newSite[regional]);
-                            imageSlide.find('.ground').html(newSite[ground]);
-                            imageSlide.find('.soil').html(newSite[soil]);
-                    }
-            }
-            
-            // This initiates the counter
-            $('#siteslides').data('siteindex',0)
-            
+    SlideShow = {
+        imageSlide: '',
+        sites: [],
+        timer: '',
+        // Duration of slideshow in seconds
+        slideDuration: 5,
+
+        // Fields
+        street: "roads-fename",
+        local: "localwaterbasin-hu_12_name",
+        medium: "mediumwaterbasin-hu_10_name",
+        regional: "largewaterbasin-hu_8_name",
+        ground: "hydrography",
+        soil: "soils-name",
+
+        jsonFile: '',
+        imageDirectory: '',
+
+        createTimer: function(){
             // This is an automatic counter
-            var refreshSlide = setInterval(function() {
-                  startSlides($('#siteslides'),1);
-            }, 1000 * slideDuration);
-            
-            // This Pauses the slideshow when hovering over the image
-            $('#siteslides').hover(function() {
-                clearInterval(refreshSlide);
-            }, function() {
-                    refreshSlide = setInterval(function() {
-                            startSlides($('#siteslides'),1);
-                            }, 1000 * slideDuration);
+            // var refreshSlide = setInterval(function() {
+            //       startSlides($('#siteslides'),1);
+            // }, 1000 * slideDuration);
+            var that = this;
+            this.timer = setInterval(function(){
+                that.starSlides(1);
+            }, 1000 * this.slideDuration);
+        },
+
+        initialize : function(element, jsonFile, imageDirectory) {
+            var that = this;
+            this.imageSlide = $(element);
+            this.jsonFile = jsonFile;
+            this.imageDirectory = imageDirectory;
+
+            $.get(jsonFile, function(data) {
+                // Save data
+                that.sites = data;
+                // This initiates the counter
+                that.imageSlide.data('siteindex', 0);
+                // Create timer
+
+                that.createTimer();
+
+                // Binding events
+                that.imageSlide.hover(function(){
+                    clearInterval(that.timer)
+                }, function(){
+                    that.createTimer();
+                });
+                // This Pauses the slideshow when hovering over the image
+                // $('#siteslides').hover(function() {
+                //     clearInterval(refreshSlide);
+                // }, function() {
+                //     refreshSlide = setInterval(function() {
+                //         startSlides($('#siteslides'),1);
+                //     }, 1000 * slideDuration);
+                // });
+                that.imageSlide.find('#forwardtab').click(function(event){
+                    event.preventDefault();
+                    that.starSlides(1);
+                });
+
+                that.imageSlide.find('#backwardtab').click(function(event){
+                    event.preventDefault();
+                    that.starSlides(-1);
+                });
+                that.starSlides(1);
+                // // This goes forward if clicked
+                // $('#forwardtab').click(function(){
+                //     startSlides($('#siteslides'),1);
+                // });
+                // // This goes backwards if clicked
+                // $('#backwardtab').click(function(){
+                //     startSlides($('#siteslides'),-1);
+                // });
             });
-            
-            // This goes forward if clicked
-            $('#forwardtab').click(function(){
-                    startSlides($('#siteslides'),1);
-            });
-            // This goes backwards if clicked
-            $('#backwardtab').click(function(){
-                    startSlides($('#siteslides'),-1);
-            });
+        },
+
+        starSlides: function(step){
+            var idx = this.imageSlide.data('siteindex') + step;
+            if (idx < 0){
+                idx = this.sites.length - 1;
+            }
+            if (idx == this.sites.length){
+                idx = 0;
+            }
+            this.imageSlide.data('siteindex', idx);
+            newSite = this.sites[idx];
+            // swap image
+            this.imageSlide.children('.siteimage')
+            .fadeOut('fast', this.siteCall(this.imageSlide, newSite));
+        },
+
+        siteCall: function(imageSlide, newSite){
+            var that = this;
+            return function(){
+                var img = that.imageSlide.children('.siteimage');
+                img.bind("load",function(){
+                    $(this).fadeIn();
+                });
+                img.attr('src', that.imageDirectory + newSite.images);
+                // swap text bits
+                // Here we need to add a . + the name of the var....
+                // We also need to switch the name of the var inside the [ ]
+                that.imageSlide.find('.street').html(newSite[that.street]);
+                that.imageSlide.find('.local').html(newSite[that.local]);
+                that.imageSlide.find('.medium').html(newSite[that.medium]);
+                that.imageSlide.find('.regional').html(newSite[that.regional]);
+                that.imageSlide.find('.ground').html(newSite[that.ground]);
+                that.imageSlide.find('.soil').html(newSite[that.soil]);
+            }
+        },
+    };
+    sliders = [];
+
+    $.each($('.slide'), function(){
+        var id = '#' + $(this).attr('id'),
+            slider = $.extend(true, {}, SlideShow),
+            element = $(id);
+        slider.initialize(id, element.data('json'), element.data('image'));
+        sliders.push(slider);
     });
+    
 });
