@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <title>Website Mockup</title>
+    <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6169252/617822/css/fonts.css" />
+    <link rel="stylesheet/less" type="text/less" href="{% static 'css/style.less' %}"/>
+    <link rel="stylesheet" href="{% static 'lib/nivo-slider/nivo-slider.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/futurico-theme.css' %}" media="screen">
+    {% block css %} {% endblock %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'lib/less.js' %}"></script>
+    <!-- This is the location of the script we will be using for the slideshow-->
+    <script type="text/javascript" src="static/js/slideshowLA.js"></script>
+    {% block javascript %} {% endblock %}
+</head>
+
+<body lang="en">
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
