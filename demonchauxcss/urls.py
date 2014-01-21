@@ -10,9 +10,10 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'demonchauxcss.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^', include('base.urls')),
+    url(r'', include('base.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

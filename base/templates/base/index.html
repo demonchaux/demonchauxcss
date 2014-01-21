@@ -10,7 +10,7 @@
         <div id="title">
             <p><strong>Name Here</strong></p>
             <p><b>is Some text about him goes here saying some stuff.</p>
-            <p>Here are some <a href="#">Design Proposals</a>, <a href="#">Projects</a>, <a href="#">Books and Essays</a>, and <a href="#">Software</a>. And a <a href="#">Bio</a>.</b></p>
+            <p>Here are some <a href="{% url 'home_filter' 'design' %}">Design Proposals</a>, <a href="{% url 'home_filter' 'projects' %}">Projects</a>, <a href="{% url 'home_filter' 'books' %}">Books and Essays</a>, and <a href="{% url 'home_filter' 'software' %}">Software</a>. And a <a href="{% url 'biography' %}">Bio</a>.</b></p>
         </div>
         <div id="news">
             <div id="newsitem">4.11.13 &raquo; Here is some news</div>
@@ -19,16 +19,20 @@
         </div>
         <div id="main">
             {% for post in posts %}
-                {% ifequal post.post_type 'sld' %}
+                {% ifequal post.post_type 'a' %}
+                    {% include "base/blocks/short_post.html" %}
+                {% endifequal %}
+
+                {% ifequal post.post_type 'b' %}
+                    {% include "base/blocks/long_post.html" %}
+                {% endifequal %}
+
+                {% ifequal post.post_type 'c' %}
                     {% include "base/blocks/slide_post.html" %}
                 {% endifequal %}
 
-                {% ifequal post.post_type 'cd' %}
-                    {% include "base/blocks/code_post.html" %}
-                {% endifequal %}
-
-                {% ifequal post.post_type 'wrt' %}
-                    {% include "base/blocks/writing_post.html" %}
+                {% ifequal post.post_type 'd' %}
+                    {% include "base/blocks/slide_post.html" %}
                 {% endifequal %}
             {% endfor %}
 

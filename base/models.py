@@ -1,9 +1,10 @@
 from django.db import models
 
 POST_TYPES = (
-    ('cd', 'Code'),
-    ('wrt', 'Writing'),
-    ('sld', 'Slider')
+    ('a', 'Software'),
+    ('b', 'Books and essay'),
+    ('c', 'Design projects'),
+    ('d', 'Projects')
 )
 
 class Post(models.Model):
@@ -15,3 +16,7 @@ class Post(models.Model):
 
     def __unicode__(self):
         return "{0} - {1}".format(self.headline, self.post_type)
+
+class PostImage(models.Model):
+    post = models.ForeignKey(Post)
+    image = models.ImageField(blank=False, upload_to="images/")

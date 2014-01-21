@@ -1,33 +1,42 @@
 <div id="fpcontent">
     <h3>{{ post.headline }}</h3>
     <hr>
-    <!--This is where we define the slideshow divs, and call the script to replace the initial values-->
-    <div id="siteslides{{ post.id }}" class="slide" 
-         data-json="{{ post.json_path }}" data-image="{{ post.image_path }}">
-        <img class="siteimage" src="/static/images/LA/LA1_Page_002.jpg" alt="site design diagram"/>
-
-        <div id="backwardtab"><a href="#">&lt;</a></div>
-        <div id="forwardtab"><a href="#">&gt;</a></div>
-
-        <div class="sitetext">
-            <b><span class="street">Ventura</span></b>
-            <hr>
-
-            <span class="local">Bell Creek-Los Angeles River</span> / 
-            <span class="medium">Upper Los Angeles River</span> /
-            <span class="regional">Los Angeles</span> Watershed.
-            <hr>
-
-            <span class="sitelabel">Groundwater Basin :</span>
-            <span class="ground">Calabasas Creek</span>
-            <hr>
+    {# This is where we define the slideshow divs, and call the script to replace the initial values #}
+    {% if post.post_type == 'c' %}
+        <div class='slides'>
+            {% for image in post.postimage_set.all %}
+                <img src="{{ MEDIA_URL }}{{ image.image }}"/>
+            {% endfor %}
         </div>
-    </div>
+    {% elif post.post_type == 'd' %}
+        <div id="siteslides{{ post.id }}" class="slide"
+             data-json="{{ post.json_path }}" data-image="{{ post.image_path }}">
+            <img class="siteimage" src=""/>
+
+            <div id="backwardtab"><a href="#">&lt;</a></div>
+            <div id="forwardtab"><a href="#">&gt;</a></div>
+
+            <div class="sitetext">
+                <b><span class="street"></span></b>
+                <hr>
+
+                <span class="local"></span> / 
+                <span class="medium"></span> /
+                <span class="regional"></span>{#  Watershed. #}
+                <hr>
+
+                <span class="sitelabel">span>
+                <span class="ground"></span>
+                <hr>
+            </div>
+        </div>
+    {% endif %}
 
     <p>
         {{ post.body|truncatewords:45|safe }}
+
         {% if post.body|length > post.body|truncatewords:45|length %}
-           <a href="{{ post.id }}/"> Read more </a>
+           <a href="{{ post.id }}/"> More </a>
         {% endif %}
     </p>
 </div>

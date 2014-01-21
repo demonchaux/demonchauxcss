@@ -4,7 +4,6 @@
 var jsonFile = "static/js/json/localcode_la.json";
 var imageDirectory = "static/images/LA/"
 
-
 $(function(){
     SlideShow = {
         imageSlide: '',
@@ -104,7 +103,7 @@ $(function(){
             var that = this;
             return function(){
                 var img = that.imageSlide.children('.siteimage');
-                img.bind("load",function(){
+                img.bind("load", function(){
                     $(this).fadeIn();
                 });
                 img.attr('src', that.imageDirectory + newSite.images);
