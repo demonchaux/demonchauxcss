@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from base.models import Post, PostImage, POST_TYPES
+from base.models import Post, PostImage
 
 def home(request):
     context = {'title': 'Website Mockup'}
