@@ -1,4 +1,7 @@
 Django==1.6.1
+Django-tinymce-filebrowser==0.2.1
 Pillow==2.3.0
 argparse==1.2.1
+django-tinymce==1.5.2
+sorl-thumbnail==11.12
 wsgiref==0.1.2
