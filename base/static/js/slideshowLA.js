@@ -95,14 +95,14 @@ $(function(){
             this.imageSlide.data('siteindex', idx);
             newSite = this.sites[idx];
             // swap image
-            this.imageSlide.children('.siteimage')
+            this.imageSlide.find('.siteimage')
             .fadeOut('fast', this.siteCall(this.imageSlide, newSite));
         },
 
         siteCall: function(imageSlide, newSite){
             var that = this;
             return function(){
-                var img = that.imageSlide.children('.siteimage');
+                var img = that.imageSlide.find('.siteimage');
                 img.bind("load", function(){
                     $(this).fadeIn();
                 });

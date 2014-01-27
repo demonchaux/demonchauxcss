@@ -11,7 +11,9 @@
     {% elif post.post_type == 'd' %}
         <div id="siteslides{{ post.id }}" class="slide"
              data-json="{{ post.json_path }}" data-image="{{ post.image_path }}">
-            <img class="siteimage" src=""/>
+            <div class="image_slide">
+                <img class="siteimage" src=""/>
+            </div>
 
             <div id="backwardtab"><a href="#">&lt;</a></div>
             <div id="forwardtab"><a href="#">&gt;</a></div>
@@ -36,7 +38,7 @@
         {{ post.body|truncatewords:45|safe }}
 
         {% if post.body|length > post.body|truncatewords:45|length %}
-           <a href="{{ post.id }}/"> More </a>
+           <a href="/{{ post.id }}/"> More </a>
         {% endif %}
     </p>
 </div>

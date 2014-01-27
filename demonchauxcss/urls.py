@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'demonchauxcss.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'', include('base.urls')),
+    url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^mce_filebrowser/', include('mce_filebrowser.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

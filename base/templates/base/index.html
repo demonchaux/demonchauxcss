@@ -10,7 +10,9 @@
         <div id="title">
             <p><strong>Name Here</strong></p>
             <p><b>is Some text about him goes here saying some stuff.</p>
-            <p>Here are some <a href="{% url 'home_filter' 'design' %}">Design Proposals</a>, <a href="{% url 'home_filter' 'projects' %}">Projects</a>, <a href="{% url 'home_filter' 'books' %}">Books and Essays</a>, and <a href="{% url 'home_filter' 'software' %}">Software</a>. And a <a href="{% url 'biography' %}">Bio</a>.</b></p>
+            <p>Here are some <a href="{% url 'home_filter' 'design' %}">Design Proposals</a>, <a href="{% url 'home_filter' 'projects' %}">Projects</a>, <a href="{% url 'home_filter' 'books' %}">Books and Essays</a>, and <a href="{% url 'home_filter' 'software' %}">Software</a>. And a <a href="{% url 'biography' %}">Bio</a>.</b>
+            {% if filter %}Back to <a href="{% url 'home' %}">Main</a> {% endif %}
+            </p>
         </div>
         <div id="news">
             <div id="newsitem">4.11.13 &raquo; Here is some news</div>

@@ -3,7 +3,7 @@ from base.models import Post, PostImage
 
 def home(request):
     context = {'title': 'Website Mockup'}
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('?')
     context['posts'] = posts
     return render(request, 'base/index.html', context)
 
@@ -17,10 +17,11 @@ def home_filter(request, type=''):
     }
     param = params.get(type, '')
     if param:
-        posts = Post.objects.filter(post_type=param)
+        posts = Post.objects.filter(post_type=param).order_by('?')
     else:
-        posts = Post.objects.all()
+        posts = Post.objects.all().order_by('?')
     context['posts'] = posts
+    context['filter'] = True
     return render(request, 'base/index.html', context)
 
 def post_detail(request, post_id):

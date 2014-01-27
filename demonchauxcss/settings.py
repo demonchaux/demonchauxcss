@@ -36,7 +36,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'base'
+    'tinymce',
+    'sorl.thumbnail',
+    'mce_filebrowser',
+    'base',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,3 +88,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': 'table,spellchecker,paste,searchreplace,media',
+    'width': 1024,
+    'height': 400,
+    'theme': 'advanced',
+    'file_browser_callback': 'mce_filebrowser',
+    'theme_advanced_buttons1': "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,bullist,numlist,sub,sup,|,forecolor,backcolor,formatselect,fontsizeselect",
+    'theme_advanced_buttons2': "outdent,indent,|,undo,redo,|,link,unlink,anchor,image,media,tablecontrols,removeformat,code",
+    'theme_advanced_toolbar_location': "top",
+    'theme_advanced_toolbar_align': "left",
+    'theme_advanced_statusbar_location': "top",
+    'theme_advanced_resizing': True
+}

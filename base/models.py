@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 POST_TYPES = (
     ('a', 'Software'),
@@ -9,7 +10,7 @@ POST_TYPES = (
 
 class Post(models.Model):
     headline = models.CharField(blank=True, max_length=100)
-    body = models.TextField(blank=True)
+    body = HTMLField(blank=True)
     json_path = models.CharField(blank=True, max_length=50)
     image_path = models.CharField(blank=True, max_length=50)
     post_type = models.CharField(blank=False, choices=POST_TYPES, max_length='5')

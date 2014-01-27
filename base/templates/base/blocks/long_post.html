@@ -5,9 +5,9 @@
         <img src="{{ STATIC_URL }}{{ post.image_path }}">
     {% endif %}
     <p>
-        {{ post.body|truncatewords:45 }}
+        {{ post.body|truncatewords:45 |safe }}
         {% if post.body|length > post.body|truncatewords:45|length %}
-            <a href="{{ post.id }}/"> More </a>
+            <a href="/{{ post.id }}/"> More </a>
         {% endif %}
     </p>
 </div>
