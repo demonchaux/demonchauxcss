@@ -15,9 +15,21 @@
             </p>
         </div>
         <div id="news">
-            <div id="newsitem">4.11.13 &raquo; Here is some news</div>
+            <!-- <div id="newsitem">4.11.13 &raquo; Here is some news</div>
             <div id="newsitem">8.9.13 &raquo; Here is some more news</div>
-            <div id="newsitem">21.12.13 &raquo; Here is yet more news</div>
+            <div id="newsitem">21.12.13 &raquo; Here is yet more news</div> -->
+            {% for event in events %}
+                <div id="newsitem"> 
+                    {% if event.is_short %} 
+                        {{ event.timestamp }} &raquo;
+                        <a href="{% url 'event_detail' event.id %}"> 
+                            {{ event.short_desc }}{% if event.address %}, {{ event.address }} {% endif %}
+                        </a>
+                    {% else %}
+                        {{ event.timestamp }} &raquo; {{ event.short_desc }}{% if event.address %}, {{ event.address }} {% endif %}
+                    {% endif %}
+                </div>
+            {% endfor %}
         </div>
         <div id="main">
             {% for post in posts %}

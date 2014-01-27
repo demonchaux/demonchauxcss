@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div id="contentbackground">&nbsp;</div>
+    <div id="contentcontainer">
+        <!--
+        <h1 id="mobile">Mobile layout, &gt; 0em</h1>
+        <h1 id="widemobile">Wide mobile layout, &gt; 30em</h1>
+        <h1 id="tablet">Tablet layout, &gt; 37.5em</h1>
+        <h1 id="desktop">Desktop layout, &gt; 57em</h1>
+        <h1 id="desktop-plus">Desktop layout, &gt; 57em <em>(plus full-page zoom, &gt; 64em)</em></h1>
+        -->
+        <div>
+            <p><strong>Nicholas de Monchaux</strong>
+            <a href="{% url 'home' %}">&laquo;Main</a></p>
+        </div>
+        <div id="contentmain">
+            <h3>{{ event.timestamp }} &raquo; {{ event.short_desc }} </h3>
+            <p>
+                {{ event.description|safe }}
+            </p>
+        </div>
+        {% include "base/blocks/footer.html" %}
+    </div>
+    
+{% endblock %}

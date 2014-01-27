@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from base.models import Post, PostImage
+from base.models import Post, PostImage, Event
 
 def home(request):
     context = {'title': 'Website Mockup'}
     posts = Post.objects.all().order_by('?')
     context['posts'] = posts
+    context['events'] = Event.objects.all().order_by('-timestamp')[:10]
     return render(request, 'base/index.html', context)
 
 def home_filter(request, type=''):
@@ -22,6 +23,7 @@ def home_filter(request, type=''):
         posts = Post.objects.all().order_by('?')
     context['posts'] = posts
     context['filter'] = True
+    context['events'] = Event.objects.all().order_by('-timestamp')[:10]
     return render(request, 'base/index.html', context)
 
 def post_detail(request, post_id):
@@ -35,5 +37,13 @@ def post_detail(request, post_id):
     return render(request, 'base/contentpage.html', context)
 
 def biography(request):
+    return render(request, 'base/biography.html', {})
+
+def event_detail(request, event_id):
     context = {}
-    return render(request, 'base/biography.html', context)
+    try:
+        event = Event.objects.get(id=event_id)
+    except Event.DoesNotExist:
+        event = None
+    context['event'] = event
+    return render(request, 'base/event_content.html', context)
