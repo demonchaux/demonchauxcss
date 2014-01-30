@@ -37,6 +37,16 @@
                     // [boolean] pause a playing slideshow on hover
                     restartDelay: 2500
                     // [number] restart delay on inactive slideshow
+                },
+                callback: {
+                    loaded: function(number) {
+                        $.each($('.slides'), function() {
+                            $(this).find('.slidesjs-navigation').wrapAll('<div class="slides_navigation"></div>');
+                        });
+                        $('a.slidesjs-previous').attr('id', 'backwardtab').html('&lt;')
+                        $('a.slidesjs-next').attr('id', 'forwardtab').html('&gt;');
+                        $('.slidesjs-pagination').css('display', 'none');
+                    }
                 }
             });
         });
