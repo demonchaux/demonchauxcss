@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from base.models import Post, PostImage, Event
 
 def home(request):
@@ -26,9 +26,13 @@ def home_filter(request, type=''):
     context['events'] = Event.objects.all().order_by('-timestamp')[:10]
     return render(request, 'base/index.html', context)
 
-def post_detail(request, post_id):
+def post_detail(request, slug='', post_id=0):
     context = {'title': 'Frameless Test | spinline.net'}
-    post = Post.objects.get(id=post_id)
+    try:
+        post = Post.objects.get(id=post_id)
+    except Post.DoesNotExist:
+        post = None
+        return redirect(home)
     images = []
     if post:
         images = PostImage.objects.filter(post_id=post.id)

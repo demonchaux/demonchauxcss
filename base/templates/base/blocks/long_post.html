@@ -7,7 +7,7 @@
     <p>
         {{ post.body|truncatewords:45 |safe }}
         {% if post.body|length > post.body|truncatewords:45|length %}
-            <a href="{% url 'post_detail' post.id %}"> More </a>
+            <a href="{% url 'post_detail' post.slug post.id %}"> More </a>
         {% endif %}
     </p>
 </div>

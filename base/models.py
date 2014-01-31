@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 from tinymce.models import HTMLField
 
 POST_TYPES = (
@@ -10,6 +11,7 @@ POST_TYPES = (
 
 class Post(models.Model):
     headline = models.CharField(blank=True, max_length=100)
+    slug = models.SlugField(max_length=100)
     body = HTMLField(blank=True)
     json_path = models.CharField(blank=True, max_length=50)
     image_path = models.CharField(blank=True, max_length=50)
@@ -17,6 +19,10 @@ class Post(models.Model):
 
     def __unicode__(self):
         return "{0} - {1}".format(self.headline, self.post_type)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.headline)
+        super(Post, self).save(*args, **kwargs)
 
 class PostImage(models.Model):
     post = models.ForeignKey(Post)

@@ -1,9 +1,10 @@
+{% load staticfiles %}
 <div id="fpcontent">
     <h3>{{ post.headline }}</h3>
     <hr>
     {# This is where we define the slideshow divs, and call the script to replace the initial values #}
     {% if post.post_type == 'c' %}
-        <div class='slides'>
+        <div class='galleria'>
             {% for image in post.postimage_set.all %}
                 <img src="{{ MEDIA_URL }}{{ image.image }}"/>
             {% endfor %}
@@ -40,7 +41,7 @@
         {{ post.body|truncatewords:45|safe }}
 
         {% if post.body|length > post.body|truncatewords:45|length %}
-           <a href="{% url 'post_detail' post.id %}"> More </a>
+           <a href="{% url 'post_detail' post.slug post.id %}"> More </a>
         {% endif %}
     </p>
 </div>
