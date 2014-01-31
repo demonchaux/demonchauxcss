@@ -9,8 +9,6 @@ $(function(){
         imageSlide: '',
         sites: [],
         timer: '',
-        // Duration of slideshow in seconds
-        slideDuration: 5,
 
         // Fields
         street: "roads-fename",
@@ -31,7 +29,7 @@ $(function(){
             var that = this;
             this.timer = setInterval(function(){
                 that.starSlides(1);
-            }, 1000 * this.slideDuration);
+            }, 1000 * 5);
         },
 
         initialize : function(element, jsonFile, imageDirectory) {
