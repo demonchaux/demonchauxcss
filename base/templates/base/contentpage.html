@@ -18,7 +18,7 @@
             <h3>{{ post.headline }}</h3>
 
             {% ifequal post.post_type 'c' %}
-                <div class="slides">
+                <div class="galleria">
                     {% for image in post.postimage_set.all %}
                         <img class="siteimage" width="100%" src="{{ MEDIA_URL}}{{ image.image }}" alt="site design diagram"/>
                     {% endfor %}
@@ -27,9 +27,12 @@
 
             {% ifequal post.post_type 'd' %}
                 <div id="siteslides{{ post.id }}" class="slide" data-json="{{ post.json_path }}" data-image="{{ post.image_path }}">
-                    <img class="siteimage" width="100%" src="" alt="site design diagram"/>
-                    <div id="backwardtab"><a href="#">&lt;</a></div>
-                    <div id="forwardtab"><a href="#">&gt;</a></div>
+                    {# <img class="siteimage" width="100%" src="" alt="site design diagram"/> #}
+                    <div class="galleria">
+                        <img class="siteimage" src="" alt="site design diagram"/>
+                    </div>
+                    <!-- <div id="backwardtab"><a href="#">&lt;</a></div>
+                    <div id="forwardtab"><a href="#">&gt;</a></div> -->
                     <div class="sitetext">
                         <p><span class="sitelabel">CLOSEST STREET:</span>
                         <!--<span class="sitesid">128</span>-->

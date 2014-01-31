@@ -12,14 +12,14 @@
     {% elif post.post_type == 'd' %}
         <div id="siteslides{{ post.id }}" class="slide"
              data-json="{{ post.json_path }}" data-image="{{ post.image_path }}">
-            <div class="image_slide">
+            <div class="galleria">
                 <img class="siteimage" src=""/>
             </div>
 
-            <div class="slides_navigation">
+            <!-- <div class="slides_navigation">
                 <div id="backwardtab"><a href="#">&lt;</a></div>
                 <div id="forwardtab"><a href="#">&gt;</a></div>
-            </div>
+            </div> -->
 
             <div class="sitetext">
                 <b><span class="street"></span></b>
@@ -30,7 +30,7 @@
                 <span class="regional"></span>{#  Watershed. #}
                 <hr>
 
-                <span class="sitelabel">span>
+                <span class="sitelabel"></span>
                 <span class="ground"></span>
                 <hr>
             </div>
