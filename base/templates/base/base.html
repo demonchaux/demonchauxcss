@@ -56,7 +56,9 @@
                     thumbnails: "false",
                     imageCrop: "width",
                 });
-                $('.slide .galleria > img').remove();
+                Galleria.ready(function(){
+                    $('.slide .galleria > img').remove();
+                });
             }
         });
     </script>
