@@ -50,11 +50,14 @@
             //         }
             //     }
             // });
-            Galleria.loadTheme("{% static 'lib/galleria/themes/classic/galleria.classic.min.js' %}");
-            Galleria.run(".galleria", {
-                thumbnails: "false",
-                imageCrop: "width",
-            });
+            if ($('.galleria').length > 0) {
+                Galleria.loadTheme("{% static 'lib/galleria/themes/classic/galleria.classic.min.js' %}");
+                Galleria.run(".galleria", {
+                    thumbnails: "false",
+                    imageCrop: "width",
+                });
+                $('.slide .galleria > img').remove();
+            }
         });
     </script>
     {% block javascript %} {% endblock %}
