@@ -93,7 +93,7 @@ $(function(){
             this.imageSlide.data('siteindex', idx);
             newSite = this.sites[idx];
             // swap image
-            console.log(this.imageSlide.find('.galleria img').attr('src'));
+            // console.log(this.imageSlide.find('.galleria img').attr('src'));
             this.imageSlide.find('.galleria img')
             .fadeOut('fast', this.siteCall(this.imageSlide, newSite));
         },
