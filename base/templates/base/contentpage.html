@@ -1,65 +1,57 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <div id="contentbackground">&nbsp;</div>
-    <div id="contentcontainer">
-        <!--
-        <h1 id="mobile">Mobile layout, &gt; 0em</h1>
-        <h1 id="widemobile">Wide mobile layout, &gt; 30em</h1>
-        <h1 id="tablet">Tablet layout, &gt; 37.5em</h1>
-        <h1 id="desktop">Desktop layout, &gt; 57em</h1>
-        <h1 id="desktop-plus">Desktop layout, &gt; 57em <em>(plus full-page zoom, &gt; 64em)</em></h1>
-        -->
-        <div>
-            <p><strong>Nicholas de Monchaux</strong>
-            <a href="{% url 'home' %}">&laquo;Main</a></p>
+    <div class="contentpage">
+        <div class="header">
+            <div class="column">
+                <p><strong>Nicholas de Monchaux</strong>
+                <a href="{% url 'home' %}">&laquo;Main</a></p>
+            </div>
         </div>
-        <div id="contentmain">
-            <h3>{{ post.headline }}</h3>
 
-            {% ifequal post.post_type 'c' %}
-                <div class="galleria">
-                    {% for image in post.postimage_set.all %}
-                        <img class="siteimage" width="100%" src="{{ MEDIA_URL}}{{ image.image }}" alt="site design diagram"/>
-                    {% endfor %}
-                </div>
-            {% endifequal %}
+        <div class="content">
+            <div class="column">
+                <h3>{{ post.headline }}</h3>
 
-            {% ifequal post.post_type 'd' %}
-                <div id="siteslides{{ post.id }}" class="slide" data-json="{{ post.json_path }}" data-image="{{ post.image_path }}">
-                    {# <img class="siteimage" width="100%" src="" alt="site design diagram"/> #}
+                {% ifequal post.post_type 'c' %}
                     <div class="galleria">
-                        <img class="siteimage" src="" alt="site design diagram"/>
+                        {% for image in post.postimage_set.all %}
+                            <img class="siteimage" width="100%" src="{{ MEDIA_URL }}{{ image.image }}"
+                                 alt="site design diagram"/>
+                        {% endfor %}
                     </div>
-                    <!-- <div id="backwardtab"><a href="#">&lt;</a></div>
-                    <div id="forwardtab"><a href="#">&gt;</a></div> -->
-                    <div class="sitetext">
-                        <p><span class="sitelabel">CLOSEST STREET:</span>
-                        <!--<span class="sitesid">128</span>-->
-                        <span class="street">Ventura</span></p>
-                        
-                        <p><span class="sitelabel">LOCAL WATERSHED:</span>
-                        <span class="local">Bell Creek-Los Angeles River</span></p>
-                        
-                        <p><span class="sitelabel">MEDIUM WATERSHED:</span> 
-                        <span class="medium">Upper Los Angeles River</span></p>
-                        
-                        <p><span class="sitelabel">REGIONAL WATERSHED:</span> 
-                        <span class="regional">Los Angeles</span></p>
-                        
-                        <p><span class="sitelabel">GROUNDWATER BASIN:</span>
-                        <span class="ground">Calabasas Creek</span></p>
-                        
-                        <p><span class="sitelabel">SOIL TYPE:</span>
-                        <span class="soil">DIABLO CLAY LOAM</span></p> 
+                {% endifequal %}
+
+                {% ifequal post.post_type 'd' %}
+                    <div id="siteslides{{ post.id }}" class="slide" data-json="{{ post.json_path }}"
+                         data-image="{{ post.image_path }}">
+                        <div class="galleria">
+                            <img class="siteimage" src="" alt="site design diagram"/>
+                        </div>
+                        <!-- <div id="backwardtab"><a href="#">&lt;</a></div>
+                        <div id="forwardtab"><a href="#">&gt;</a></div> -->
+                        <div class="sitetext">
+                            <p><span class="sitelabel">CLOSEST STREET:</span>
+                                <!--<span class="sitesid">128</span>-->
+                                <span class="street">Ventura</span></p>
+                            <p><span class="sitelabel">LOCAL WATERSHED:</span>
+                                <span class="local">Bell Creek-Los Angeles River</span></p>
+                            <p><span class="sitelabel">MEDIUM WATERSHED:</span>
+                                <span class="medium">Upper Los Angeles River</span></p>
+                            <p><span class="sitelabel">REGIONAL WATERSHED:</span>
+                                <span class="regional">Los Angeles</span></p>
+                            <p><span class="sitelabel">GROUNDWATER BASIN:</span>
+                                <span class="ground">Calabasas Creek</span></p>
+                            <p><span class="sitelabel">SOIL TYPE:</span>
+                                <span class="soil">DIABLO CLAY LOAM</span></p>
+                        </div>
                     </div>
-                </div>
-            {% endifequal %}
-            <p>
-                {{ post.body|safe }}
-            </p>
+                {% endifequal %}
+                <p>
+                    {{ post.body|safe }}
+                </p>
+                {% include "base/blocks/footer.html" %}
+            </div>
         </div>
-        {% include "base/blocks/footer.html" %}
     </div>
-    
 {% endblock %}

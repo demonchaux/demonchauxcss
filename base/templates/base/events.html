@@ -1,14 +1,17 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <div id="contentbackground">&nbsp;</div>
-    <div id="contentcontainer">
-        <div>
-            <p><strong>Nicholas de Monchaux</strong>
-            <a href="{% url 'home' %}">&laquo;Main</a></p>
+    <div class="contentpage">
+        <div class="header">
+            <div class="column">
+                <p><strong>Nicholas de Monchaux</strong>
+                <a href="{% url 'home' %}">&laquo;Main</a></p>
+            </div>
         </div>
-        <div id="contentmain">
-            <ul class="events">
+
+        <div class="content">
+            <div class="column">
+                <ul class="events">
                 {% for event in events %}
                     <li class="event">
                         {% if event.is_short %}
@@ -21,9 +24,9 @@
                         {% endif %}
                     </li>
                 {% endfor %}
-            </ul>
+                </ul>
+                {% include "base/blocks/footer.html" %}
+            </div>
         </div>
-        {% include "base/blocks/footer.html" %}
     </div>
-    
 {% endblock %}
