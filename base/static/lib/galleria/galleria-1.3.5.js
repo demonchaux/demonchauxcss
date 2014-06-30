@@ -537,7 +537,8 @@ var doc    = window.document,
 
                                     elem.data('revert', revert);
 
-                                    strings.push('-webkit-transform' + syntax);
+//                                    strings.push('-webkit-transform' + syntax);
+                                    string.push('');
 
                                     // 3d animate
                                     setStyle( elem, 'translate3d(' + form.join(',') + ')', 'transform');
@@ -6214,7 +6215,7 @@ Galleria.Picture.prototype = {
 
                         // translate3d if needed
                         if ( Galleria.HAS3D ) {
-                            this.style.MozTransform = this.style.webkitTransform = 'translate3d(0,0,0)';
+                            this.style.MozTransform = 'translate3d(0,0,0)';
                         }
 
                         $container.append( this );
@@ -6624,7 +6625,7 @@ Galleria.Finger = (function() {
                 style.left = self.pos+'px';
                 return;
             }
-            style.MozTransform = style.webkitTransform = 'translate3d(' + self.pos + 'px,0,0)';
+            style.MozTransform = 'translate3d(' + self.pos + 'px,0,0)';
             return;
         };
 

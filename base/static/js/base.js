@@ -30,16 +30,6 @@ $(document).ready(function(){
     //         }
     //     }
     // });
-    if ($('.galleria').length > 0) {
-
-        Galleria.run(".galleria", {
-            thumbnails: "false",
-            imageCrop: "width"
-        });
-        Galleria.ready(function(){
-            $('.slide .galleria > img').remove();
-        });
-    }
 
     function scrollHeader() {
         if ($('.contentpage').length == 0) {
@@ -64,4 +54,33 @@ $(document).ready(function(){
         });
     }
     scrollHeader();
+});
+
+$(window).load(function(){
+    function initGallery() {
+        var gallerias = $('.galleria');
+        if (gallerias.length == 0) {
+            return false;
+        }
+        $.each(gallerias, function(index, item){
+            var id = '#' + $(item).attr('id');
+            $(id).galleria({
+                showInfo: false,
+                thumbnails: false,
+                imageCrop: true
+            });
+        });
+//        if ($('.galleria').length > 0) {
+//
+//        Galleria.run(".galleria", {
+//            showInfo: false,
+//            thumbnails: false,
+//            imageCrop: "width"
+//        });
+        Galleria.ready(function(){
+            $('.slide .galleria > img').remove();
+        });
+//    }
+    }
+    initGallery();
 });

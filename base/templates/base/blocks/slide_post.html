@@ -4,7 +4,7 @@
     <hr>
     {# This is where we define the slideshow divs, and call the script to replace the initial values #}
     {% if post.post_type == 'c' %}
-        <div class='galleria'>
+        <div class='galleria' id="gallery_{{ post.id }}">
             {% for image in post.postimage_set.all %}
                 <img src="{{ MEDIA_URL }}{{ image.image }}"/>
             {% endfor %}
@@ -12,7 +12,7 @@
     {% elif post.post_type == 'd' %}
         <div id="siteslides{{ post.id }}" class="slide"
              data-json="{{ post.json_path }}" data-image="{{ post.image_path }}">
-            <div class="galleria">
+            <div class="galleria" id="gallery_{{ post.id }}">
                 <img class="siteimage" src=""/>
             </div>
 

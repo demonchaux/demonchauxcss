@@ -14,7 +14,7 @@
                 <h3>{{ post.headline }}</h3>
 
                 {% ifequal post.post_type 'c' %}
-                    <div class="galleria">
+                    <div class="galleria" id="gallery_{{ post.id }}">
                         {% for image in post.postimage_set.all %}
                             <img class="siteimage" width="100%" src="{{ MEDIA_URL }}{{ image.image }}"
                                  alt="site design diagram"/>
