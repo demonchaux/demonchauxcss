@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div id="contentbackground">&nbsp;</div>
+    <div id="contentcontainer">
+        <div>
+            <p><strong>Nicholas de Monchaux</strong>
+            <a href="{% url 'home' %}">&laquo;Main</a></p>
+        </div>
+        <div id="contentmain">
+            <ul class="events">
+                {% for event in events %}
+                    <li class="event">
+                        {% if event.is_short %}
+                            {{ event.timestamp }} &raquo;
+                            <a href="{% url 'event_detail' event.id %}">
+                                {{ event.short_desc }}{% if event.address %}, {{ event.address }} {% endif %}
+                            </a>
+                        {% else %}
+                            {{ event.timestamp }} &raquo; {{ event.short_desc }}{% if event.address %}, {{ event.address }} {% endif %}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% include "base/blocks/footer.html" %}
+    </div>
+    
+{% endblock %}

@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from base.models import Post, PostImage, Event
 
+
 def home(request):
     context = {'title': 'Website Mockup'}
     posts = Post.objects.all().order_by('?')
     context['posts'] = posts
     context['events'] = Event.objects.all().order_by('-timestamp')[:10]
     return render(request, 'base/index.html', context)
+
 
 def home_filter(request, type=''):
     context = {'title': 'Website Mockup'}
@@ -26,6 +28,7 @@ def home_filter(request, type=''):
     context['events'] = Event.objects.all().order_by('-timestamp')[:10]
     return render(request, 'base/index.html', context)
 
+
 def post_detail(request, slug='', post_id=0):
     context = {'title': 'Frameless Test | spinline.net'}
     try:
@@ -40,8 +43,16 @@ def post_detail(request, slug='', post_id=0):
     context['images'] = images
     return render(request, 'base/contentpage.html', context)
 
+
 def biography(request):
     return render(request, 'base/biography.html', {})
+
+
+def events(request):
+    context = dict()
+    context['headline'] = 'Events list'
+    context['events'] = Event.objects.all().order_by('timestamp')
+    return render(request, 'base/events.html', context)
 
 def event_detail(request, event_id):
     context = {}
