@@ -1,20 +1,20 @@
 {% load staticfiles %}
-<div class="fpcontent">
+<div class="cblock fpcontent">
     <h3>{{ post.headline }}</h3>
     <hr>
     {# This is where we define the slideshow divs, and call the script to replace the initial values #}
     {% if post.post_type == 'c' %}
-        <div class='galleria' id="gallery_{{ post.id }}">
+        <ul class='galleria' id="gallery_{{ post.id }}">
             {% for image in post.postimage_set.all %}
-                <img src="{{ MEDIA_URL }}{{ image.image }}"/>
+                <li><img src="{{ MEDIA_URL }}{{ image.image }}"/></li>
             {% endfor %}
-        </div>
+        </ul>
     {% elif post.post_type == 'd' %}
         <div id="siteslides{{ post.id }}" class="slide"
              data-json="{{ post.json_path }}" data-image="{{ post.image_path }}">
-            <div class="galleria" id="gallery_{{ post.id }}">
-                <img class="siteimage" src=""/>
-            </div>
+            <ul class="galleria" id="gallery_{{ post.id }}">
+                <li><img class="siteimage" src=""/></li>
+            </ul>
 
             <!-- <div class="slides_navigation">
                 <div id="backwardtab"><a href="#">&lt;</a></div>
@@ -25,7 +25,7 @@
                 <b><span class="street"></span></b>
                 <hr>
 
-                <span class="local"></span> / 
+                <span class="local"></span> /
                 <span class="medium"></span> /
                 <span class="regional"></span>{#  Watershed. #}
                 <hr>

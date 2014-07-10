@@ -2,27 +2,24 @@
 
 {% block content %}
     <div id="container">
-        {# <h1 id="mobile">Mobile layout, &gt; 0em</h1> #}
-        {# <h1 id="widemobile">Wide mobile layout, &gt; 30em</h1> #}
-        {# <h1 id="tablet">Tablet layout, &gt; 37.5em</h1> #}
-        {# <h1 id="desktop">Desktop layout, &gt; 57em</h1> #}
-        {# <h1 id="desktop-plus">Desktop layout, &gt; 57em <em>(plus full-page zoom, &gt; 64em)</em></h1>  #}
-        <div id="title">
+        <h1 id="mobile">Mobile layout, &gt; 0em</h1>
+        <h1 id="widemobile">Wide mobile layout, &gt; 30em</h1>
+        <h1 id="tablet">Tablet layout, &gt; 37.5em</h1>
+        <h1 id="desktop">Desktop layout, &gt; 57em</h1>
+        <h1 id="desktop-plus">Desktop layout, &gt; 57em <em>(plus full-page zoom, &gt; 64em)</em></h1>
+        <div class="title">
             <p><strong>Name Here</strong></p>
             <p><b>is Some text about him goes here saying some stuff.</p>
             <p>Here are some <a href="{% url 'home_filter' 'design' %}">Design Proposals</a>, <a href="{% url 'home_filter' 'projects' %}">Projects</a>, <a href="{% url 'home_filter' 'books' %}">Books and Essays</a>, and <a href="{% url 'home_filter' 'software' %}">Software</a>. And a <a href="{% url 'biography' %}">Bio</a>.</b>
             {% if filter %}Back to <a href="{% url 'home' %}">Main</a> {% endif %}
             </p>
         </div>
-        <div id="news">
-            <!-- <div id="newsitem">4.11.13 &raquo; Here is some news</div>
-            <div id="newsitem">8.9.13 &raquo; Here is some more news</div>
-            <div id="newsitem">21.12.13 &raquo; Here is yet more news</div> -->
+        <div class="news">
             {% for event in events %}
-                <div id="newsitem"> 
-                    {% if event.is_short %} 
+                <div class="newsitem">
+                    {% if event.is_short %}
                         {{ event.timestamp }} &raquo;
-                        <a href="{% url 'event_detail' event.id %}"> 
+                        <a href="{% url 'event_detail' event.id %}">
                             {{ event.short_desc }}{% if event.address %}, {{ event.address }} {% endif %}
                         </a>
                     {% else %}
@@ -34,7 +31,7 @@
                 <a href="{% url 'events' %}">old news</a>
             </div>
         </div>
-        <div id="main">
+        <div class="main">
             {% for post in posts %}
                 {% ifequal post.post_type 'a' %}
                     {% include "base/blocks/short_post.html" %}
@@ -53,109 +50,7 @@
                 {% endifequal %}
             {% endfor %}
 
-            {% comment %}
-            <div id="fpcontent">
-                <h3>Local code case study : san francisco</h3>
-                <hr>
-                <!--This is where we define the slideshow divs, and call the script to replace the initial values-->
-                <div id="siteslides">
-                    <img class="siteimage" src="/static/images/LA/LA1_Page_002.jpg" alt="site design diagram"/>
-
-                    <div id="backwardtab">
-                        <a href="#">&lt;</a>
-                    </div>
-                    <div id="forwardtab">
-                        <a href="#">&gt;</a>
-                    </div>
-
-                    <div class="sitetext">
-                        <b><span class="street">Ventura</span></b>
-                        <hr>
-
-                        <span class="local">Bell Creek-Los Angeles River</span> / 
-                        <span class="medium">Upper Los Angeles River</span> /
-                        <span class="regional">Los Angeles</span> Watershed.
-                        <hr>
-
-                        <span class="sitelabel">Groundwater Basin :</span>
-                        <span class="ground">Calabasas Creek</span>
-                        <hr>
-                    </div>
-                </div>
-                <p>This is the text mockup of a many, many design propsal slideshow. </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-            </div>
-            {% endcomment %}
-            {% comment %}
-            <div id="fpcontent-code">
-                <h3>This is an article containing some code</h3>
-                <hr>
-                <p>This is the text mockup of an article containing code. </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-            </div> 
-            {% endcomment %}
-            {% comment %}
-            <div id="fpcontent-writing">
-                <h3>Here's a headline, y'all</h3>
-                <hr>
-                        
-                <p>This is the mockup of a longer piece of writing that would be linked here. </p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-            </div>
-            {% endcomment %}
-            {% comment %}
-            <div id="fpcontent">
-                    <h3>Here's a headline, y'all</h3>
-                    <hr>
-                    
-                     <!--This is where we define the slideshow divs, and call the script to replace the initial values-->                                    
-                     <div id="siteslides2">
-                            <img class="siteimage" src="static/images/LA/LA1_Page_002.jpg" alt="site design diagram"/>
-                            
-                            <div id="backwardtab2"><</div>
-                            <div id="forwardtab2">></div>
-                                    
-                            <div class="sitetext">
-                                    <span class="sitelabel">CLOSEST STREET:</span>
-                                    <span class="street">Ventura</span>
-                                    
-                                    <span class="sitelabel">LOCAL WATERSHED:</span>
-                                    <span class="local">Bell Creek-Los Angeles River</span>
-                                    
-                                    <span class="sitelabel">MEDIUM WATERSHED:</span> 
-                                    <span class="medium">Upper Los Angeles River</span>
-                                    
-                                    <span class="sitelabel">REGIONAL WATERSHED:</span> 
-                                    <span class="regional">Los Angeles</span>
-                                    
-                                    <span class="sitelabel">GROUNDWATER BASIN:</span>
-                                    <span class="ground">Calabasas Creek</span>
-                                    
-                                    <span class="sitelabel">SOIL TYPE:</span>
-                                    <span class="soil">DIABLO CLAY LOAM</span>
-                          </div>
-                    </div>
-                    
-                    <!-- This is the location of the script we will be using for the slideshow -->
-                    <script type="text/javascript" src="static/js/slideshowSF.js"></script>
-
-                    <p>This is another many-many-project slideshow. </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-            </div>
-            {% endcomment %}
-            {% comment %}
-            <div id="fpcontent">
-                <h3>Here's a headline, y'all</h3>
-                <hr>
-                {# <img src="http://nicholas.demonchaux.com/images/32.jpg"> #}
-                <p>This would be a more traditional design project. </p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-            </div>
-            {% endcomment %}
-        </div><!-- main -->
+        </div>
         {% include "base/blocks/footer.html" %}
     </div>
 {% endblock %}
