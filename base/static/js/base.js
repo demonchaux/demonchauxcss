@@ -165,7 +165,6 @@ $(document).ready(function(){
     }
     $(window).resize(function(){
         paperLayout();
-        initGallery();
     });
 
     paperLayout();
