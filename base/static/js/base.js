@@ -31,6 +31,21 @@ $(document).ready(function(){
     //     }
     // });
 
+    function getColumns() {
+        var columns = $('#measure span'),
+            choosen = 4;
+        console.log('check');
+        $.each(columns, function(index, item){
+            var el = $(item);
+            console.log(el.css('display'));
+            if (el.css('display') == 'block') {
+                console.log(el.prop('class') + " " + parseInt(el.html()));
+                choosen = parseInt(el.html());
+            }
+        });
+        return choosen;
+    }
+
     function scrollHeader() {
         if ($('.contentpage').length == 0) {
             return false;
@@ -63,15 +78,13 @@ $(document).ready(function(){
         $.each(gallerias, function(index, item){
             var id = '#' + $(item).attr('id');
             $(id).bxSlider({
-                // adaptiveHeight: true,
-                // auto: true,
                 pager: false
             });
         });
     }
     initGallery();
 
-    function paperLayout() {
+    function paperLayout(columns) {
         Array.prototype.repeat= function(what, L){
             while(L) this[--L]= what;
             return this;
@@ -94,7 +107,8 @@ $(document).ready(function(){
             top,
             maxHeight = [];
 
-        columns = 4;
+        columns = getColumns();
+        console.log("choosen = " + columns);
         indent = 20;
         currCount = columns;
         bWidth = $(blocks).first().width();
@@ -142,10 +156,13 @@ $(document).ready(function(){
                 });
             });
         });
-        console.log(maxHeight.max());
         $('.main').css({
             'height': maxHeight.max() + 2 * indent
         });
     }
+    $(window).resize(function(){
+        paperLayout();
+    });
+
     paperLayout();
 });

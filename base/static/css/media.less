@@ -1,0 +1,301 @@
+/**
+    Mobile layout
+    240-600 px
+**/
+@media screen and (min-width: 15em) {
+
+  h1#mobile {
+    display: block;
+    position: relative;
+  }
+
+  #container {
+    width: @4cols;
+  }
+
+  #contentcontainer {
+    #container;
+  }
+
+  .contentpage {
+    .width(4);
+    .column { .width(4); }
+  }
+
+
+  .title {
+    width: @4cols;
+    margin-bottom: 0;
+  }
+
+  .news {
+    width: @4cols;
+  }
+
+  body {
+    font-size: @font-size/16*1em;
+  }
+}
+
+/*
+    Wide mobile layout
+    480-767 px
+    Zoomed in above 480 px
+*/
+@media screen and (min-width: 30em) {
+
+  h1#mobile {
+    display: none;
+  }
+
+  h1#widemobile {
+    display: block;
+  }
+
+  body {
+    font-size: (@font-size + 2)/16*1em;
+  }
+}
+
+/*
+    Tablet layout
+    600-911 px
+    Zoomed in above 600 px
+*/
+@media screen and (min-width: 37.5em) {
+  #container {
+    width: @8cols;
+  }
+
+  #contentcontainer {
+    #container;
+  }
+
+  .contentpage {
+    .width(8);
+    .column { .width(8); }
+  }
+
+  h1#widemobile {
+    display: none;
+  }
+
+  h1#tablet {
+    display: block;
+  }
+
+  .title {
+    width: @4cols;
+    margin-bottom: 16/@em;
+  }
+
+  .news {
+    width: @4cols;
+  }
+
+  #logo {
+    width: @3cols;
+  }
+
+  body {
+    font-size: @font-size/16*1em;
+  }
+
+ .main {
+   // -moz-column-count: 2;
+   // -moz-column-gap: @gutter;
+   // -webkit-column-count: 2;
+   // -webkit-column-gap: @gutter;
+   // column-count: 2;
+   // column-gap: @gutter;
+ }
+}
+
+/*
+    desktop layout
+    912-infinity px
+*/
+@media screen and (min-width: 57em) {
+  #container {
+    width: @12cols;
+  }
+
+  h1#tablet {
+    display: none;
+  }
+
+  h1#desktop {
+    display: block;
+  }
+
+  .title {
+    width: @8cols;
+  }
+
+  .news {
+    width: @4cols;
+  }
+
+  body {
+    font-size: @font-size/16*1em;
+  }
+
+  .main {
+    // -moz-column-count: 3;
+    // -moz-column-gap: @gutter;
+    // -webkit-column-count: 3;
+    // -webkit-column-gap: @gutter;
+    // column-count: 3;
+    // column-gap: @gutter;
+  }
+}
+
+/*
+    full page zoom above 1024 px. still desktop layout.
+*/
+@media screen and (min-width: 64em) {
+  body {
+    font-size: (@font-size + 2)/16*1em;
+  }
+
+  h1#desktop {
+    display: none;
+  }
+
+  h1#desktop-plus {
+    display: block;
+  }
+}
+
+/*
+    full page zoom above 1024 px. still desktop layout.
+*/
+@media screen and (min-width: 78em) {
+  #container {
+    width: @16cols;
+  }
+
+
+  h1#desktop {
+    display: none;
+  }
+
+  h1#desktop-plus {
+    display: block;
+  }
+
+  .title,
+  .news {
+    width: @8cols;
+  }
+
+  body {
+    font-size: @font-size/16*1em;
+  }
+
+  .main {
+    // -moz-column-count: 4;
+    // -moz-column-gap: 1em;
+    // -webkit-column-count: 4;
+    // -webkit-column-gap: 1em;
+    // column-count: 4;
+    // column-gap: 1em;
+  }
+}
+
+@media screen and (min-width: 88em) {
+  body {
+    font-size: (@font-size + 2)/16*1em;
+  }
+}
+
+@media screen and (min-width: 110em) {
+  body {
+    font-size: (@font-size)/16*1em;
+  }
+
+  #container {
+    width: @20cols;
+  }
+
+
+  .title {
+    width: @12cols;
+  }
+
+  .main {
+    // -moz-column-count: 5;
+    // -moz-column-gap: @gutter;
+    // -webkit-column-count: 5;
+    // -webkit-column-gap: @gutter;
+    // column-count: 5;
+    // column-gap: @gutter;
+  }
+
+}
+
+
+// @media screen and (min-width: 118em) {
+//   body {
+//     font-size: (@font-size+2)/16*1em;
+//   }
+
+// }
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  #measure {
+    span.mobile { display: block; }
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+  /* Styles */
+  #measure {
+    span.tablet-landscape { display: block; }
+  }
+
+  /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+  /* Styles */
+  #measure {
+    span.table-portrait { display: block; }
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+  #measure {
+    span.desktop-laptop { display: block; }
+  }
+
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+  #measure {
+    span.largescreen { display: block; }
+  }
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}

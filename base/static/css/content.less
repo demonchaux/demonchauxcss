@@ -1,0 +1,168 @@
+/***** content page *****/
+.contentpage {
+//  .height(24);
+  margin: auto;
+
+  .column {
+    .width(8);
+    margin: auto;
+  }
+
+  .header,
+  .content,
+  .footer {
+    position: relative;
+    width: 100%;
+    background: #fff;
+  }
+
+  .content,
+  .footer {
+    z-index: 1;
+  }
+
+  .header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: auto;
+    -webkit-box-shadow: 0px 0px 4/@em 0px #8f8f8f;
+    -moz-box-shadow: 0px 0px 4/@em 0px #8f8f8f;;
+    box-shadow: 0px 0px 4/@em 0px #8f8f8f;
+    z-index: 2;
+    p {
+      padding: 72/@em 0 16/@em 0;
+    }
+    &.scrolled {
+      position: fixed;
+      top: 0;
+      left: 0;
+      p {
+        padding: 16/@em 0 16/@em 0;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 104/@em + 18/@em;
+    line-height: 1.75em;
+    &.scrolled {
+      margin-top: 32/@em + 104/@em + 18/@em;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .galleria {
+      width: 100%;
+      height: 800px;
+      .galleria-container {
+        background-color: #fff;
+      }
+      .galleria-stage {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+
+#contentbackground {
+  width: 100%;
+  height: @24cols;
+  position: absolute;
+  top: @2cols;
+  -webkit-box-shadow: 0px 0px 4/@em 0px #8f8f8f;
+  box-shadow: 0px 0px 4/@em 0px #8f8f8f;
+  overflow: auto;
+  background: #fff;
+  z-index: -1;
+}
+
+#contentcontainer {
+  #container;
+  padding-top: 24/@em;
+}
+
+#contentmain {
+  padding-top: 24/@em;
+  line-height: 28/@em;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  .galleria {
+    width: 100%;
+    height: 800px;
+    .galleria-container {
+      background-color: #fff;
+    }
+    .galleria-stage {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+#siteslides {
+  font-size: 12/@em;
+  font-family: 'Whitney SSm A', 'Whitney SSm B';
+  line-height: 28/@em;
+}
+
+/* Slider Buttons */
+#siteslides .backwardtab {
+  position: absolute;
+  left: 0;
+  height: 600px;
+  width: 48px;
+  background: url('static/images/triangle-left.png') center center no-repeat;
+  opacity: 0.1;
+}
+
+#siteslides .backwardtab:hover {
+  opacity: 1.0;
+}
+
+#siteslides .forwardtab {
+  position: absolute;
+  right: 0;
+  height: 600px;
+  width: 48px;
+  background: url('static/images/triangle-right.png') center center no-repeat;
+  opacity: 0.1;
+}
+
+#siteslides .forwardtab:hover {
+  opacity: 1.0;
+}
+
+.slides_navigation {
+  width: 31px;
+  height: 25px;
+  margin: 5px auto;
+  #backwardtab,
+  #forwardtab {
+    display: block;
+    float: left;
+    width: 8px;
+  }
+
+  #backwardtab {
+    margin-right: 15px;
+  }
+}
+
+.slidesjs-pagination {
+  li {
+    display: inline-block;
+    margin-left: 10px;
+  }
+}
+
+/***** end common styles *****/
