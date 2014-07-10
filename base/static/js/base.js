@@ -34,10 +34,8 @@ $(document).ready(function(){
     function getColumns() {
         var columns = $('#measure span'),
             choosen = 4;
-        console.log('check');
         $.each(columns, function(index, item){
             var el = $(item);
-            console.log(el.css('display'));
             if (el.css('display') == 'block') {
                 console.log(el.prop('class') + " " + parseInt(el.html()));
                 choosen = parseInt(el.html());
@@ -105,7 +103,9 @@ $(document).ready(function(){
             indent,
             left,
             top,
-            maxHeight = [];
+            maxHeight = [],
+            matrix = [],
+            arr = [];
 
         columns = getColumns();
         console.log("choosen = " + columns);
@@ -113,9 +113,6 @@ $(document).ready(function(){
         currCount = columns;
         bWidth = $(blocks).first().width();
         maxHeight.repeat(0, columns);
-
-        var matrix = [],
-            arr = [];
 
         $.each(blocks, function(index, item){
             arr.push($(item));
@@ -134,13 +131,14 @@ $(document).ready(function(){
         $.each(matrix, function(i, line) {
             left = 0;
             $.each(line, function(j, item) {
-                maxHeight[j] += item.height() + parseInt(item.css('padding-top')) + parseInt(item.css('padding-bottom'));
                 if (i != 0) {
                     // Calculate top
                     var el = matrix[i - 1][j],
                         height;
                     height = el.height() + parseInt(el.css('padding-top')) + parseInt(el.css('padding-bottom'));
-                    top = height + indent;
+
+                    top = parseInt(el.css('top')) + height + 2 * indent;
+                    console.log(height);
                 }
                 if (j != 0) {
                     // Calculate left
@@ -154,14 +152,20 @@ $(document).ready(function(){
                     'left': left,
                     'top': top
                 });
+                maxHeight[j] += item.height()
+                    + parseInt(item.css('padding-top'))
+                    + parseInt(item.css('padding-bottom')) + 2 * indent;
             });
         });
+        console.log ('MaxHeight');
+        console.log(maxHeight.max());
         $('.main').css({
-            'height': maxHeight.max() + 2 * indent
+            'height': maxHeight.max()
         });
     }
     $(window).resize(function(){
         paperLayout();
+        initGallery();
     });
 
     paperLayout();
