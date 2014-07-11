@@ -9,6 +9,10 @@
     position: relative;
   }
 
+  #measure {
+    span.mobile { display: block; }
+  }
+
   #container {
     width: @4cols;
   }
@@ -84,6 +88,10 @@
     display: block;
   }
 
+  #measure {
+    span.tablet { display: block; }
+  }
+
   .title {
     width: @4cols;
     margin-bottom: 16/@em;
@@ -126,6 +134,9 @@
 
   h1#desktop {
     display: block;
+  }
+  #measure {
+    span.desktop { display: block; }
   }
 
   .title {
@@ -183,6 +194,9 @@
   h1#desktop-plus {
     display: block;
   }
+  #measure {
+    span.desktop-plus { display: block; }
+  }
 
   .title,
   .news {
@@ -218,9 +232,13 @@
     width: @20cols;
   }
 
+  .title,
+  .news {
+    width: @10cols;
+  }
 
-  .title {
-    width: @12cols;
+  #measure {
+    span.largescreen { display: block; }
   }
 
   .main {
@@ -241,61 +259,3 @@
 //   }
 
 // }
-
-
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  #measure {
-    span.mobile { display: block; }
-  }
-}
-
-/* Smartphones (landscape) ----------- */
-@media only screen and (min-width : 321px) {
-}
-
-/* Smartphones (portrait) ----------- */
-@media only screen and (max-width : 320px) {
-}
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-}
-
-/* iPads (landscape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-  /* Styles */
-  #measure {
-    span.tablet-landscape { display: block; }
-  }
-
-  /* Styles */
-}
-
-/* iPads (portrait) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-  /* Styles */
-  #measure {
-    span.table-portrait { display: block; }
-  }
-}
-
-/* Desktops and laptops ----------- */
-@media only screen and (min-width : 1224px) {
-  #measure {
-    span.desktop-laptop { display: block; }
-  }
-
-}
-
-/* Large screens ----------- */
-@media only screen and (min-width : 1824px) {
-  #measure {
-    span.largescreen { display: block; }
-  }
-}
-
-/* iPhone 4 ----------- */
-@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
-/* Styles */
-}
