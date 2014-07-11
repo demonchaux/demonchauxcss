@@ -168,4 +168,14 @@ $(document).ready(function(){
     });
 
     paperLayout();
+
+    // Fix IE, Safari
+    $.each($('.bx-viewport'), function(i, item){
+        var el = $(item),
+            height = parseInt(el.css('height'));
+
+        if (height != 240) {
+            el.css({'height': '240px'});
+        }
+    });
 });
