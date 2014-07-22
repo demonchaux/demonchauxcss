@@ -76,7 +76,9 @@ $(document).ready(function(){
         $.each(gallerias, function(index, item){
             var id = '#' + $(item).attr('id');
             $(id).bxSlider({
-                pager: false
+                pager: false,
+                adaptiveHeight: true,
+                adaptiveHeightSpeed: 250
             });
         });
     }
