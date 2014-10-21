@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'mce_filebrowser',
     'base',
+    'south',
 )
 
 MIDDLEWARE_CLASSES = (
