@@ -139,7 +139,7 @@ $(document).ready(function(){
                         height;
                     height = el.height() + parseInt(el.css('padding-top')) + parseInt(el.css('padding-bottom'));
 
-                    top = parseInt(el.css('top')) + height + 2 * indent;
+                    top = parseInt(el.css('top')) + height + indent;
                     console.log(height);
                 }
                 if (j != 0) {
