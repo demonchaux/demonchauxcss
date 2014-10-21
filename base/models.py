@@ -27,6 +27,13 @@ class Post(models.Model):
 class PostImage(models.Model):
     post = models.ForeignKey(Post)
     image = models.ImageField(blank=False, upload_to="images/")
+    image_preview = models.ImageField(blank=True, upload_to="images/preview/", default='')
+
+    def get_preview_or_full(self):
+        if self.image_preview:
+            return self.image_preview.url
+        else:
+            return self.image.url
 
 class Event(models.Model):
     timestamp = models.DateField()

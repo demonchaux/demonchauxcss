@@ -6,7 +6,7 @@
     {% if post.post_type == 'c' %}
         <ul class='galleria' id="gallery_{{ post.id }}">
             {% for image in post.postimage_set.all %}
-                <li><img src="{{ MEDIA_URL }}{{ image.image }}"/></li>
+                <li><img src="{{ image.get_preview_or_full }}"/></li>
             {% endfor %}
         </ul>
     {% elif post.post_type == 'd' %}
